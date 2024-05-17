@@ -1,0 +1,119 @@
+
+import requests
+resp=requests.get("http://localhost:5000/student")
+print (resp.text)
+{
+  "students": [
+    {
+      "age": 21, 
+      "marks": 50, 
+      "name": "Ravi"
+    }, 
+    {
+      "age": 25, 
+      "marks": 60, 
+      "name": "Kiran"
+    }, 
+    {
+      "age": 20, 
+      "marks": 60, 
+      "name": "Rubina"
+    }
+  ]
+}
+
+
+data={"name":"John", "age":19, "marks":55}
+      
+resp=requests.post("http://localhost:5000/student", json=data)
+      
+print (resp.text)
+      
+{
+  "students": [
+    {
+      "age": 21, 
+      "marks": 50, 
+      "name": "Ravi"
+    }, 
+    {
+      "age": 25, 
+      "marks": 60, 
+      "name": "Kiran"
+    }, 
+    {
+      "age": 20, 
+      "marks": 60, 
+      "name": "Rubina"
+    }, 
+    {
+      "age": 19, 
+      "marks": 55, 
+      "name": "John"
+    }
+  ]
+}
+
+curl -i -X DELETE http://localhost:5000/student/Rubina
+resp=requests.delete("http://localhost:5000/delete/Rubina")
+          
+print (resp.text)
+      
+{
+  "students": [
+    {
+      "age": 21, 
+      "marks": 50, 
+      "name": "Ravi"
+    }, 
+    {
+      "age": 25, 
+      "marks": 60, 
+      "name": "Kiran"
+    }, 
+    {
+      "age": 19, 
+      "marks": 55, 
+      "name": "John"
+    }
+  ]
+}
+
+
+data={"name":"Ravikiran", "age":22}
+      
+resp=requests.put("http://localhost:5000/student/Ravi", json=data)
+      
+print (resp.text)
+      
+{
+  "students": [
+    {
+      "age": 22, 
+      "marks": 50, 
+      "name": "Ravikiran"
+    }, 
+    {
+      "age": 25, 
+      "marks": 60, 
+      "name": "Kiran"
+    }, 
+    {
+      "age": 19, 
+      "marks": 55, 
+      "name": "John"
+    }
+  ]
+}
+
+resp=requests.get("http://localhost:5000/student/John")
+      
+print (resp.text)
+      
+{
+  "student": {
+    "age": 19, 
+    "marks": 55, 
+    "name": "John"
+  }
+}
