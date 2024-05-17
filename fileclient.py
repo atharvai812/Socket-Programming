@@ -5,7 +5,7 @@ host = "127.0.0.1"
 port = 5001
 
 s.connect((host, port))
-s.send("Hello server!")
+s.send("Hello server!".encode())
 
 with open('recv.txt', 'wb') as f:
     while True:
